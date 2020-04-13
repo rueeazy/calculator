@@ -40,35 +40,8 @@ function chooseOperation(operation) {
     currentNum = '';
 }
 
-clearButton.addEventListener('click', () => {
-    clear();
-    updateDisplay();
-})
-
-
-numberButtons.forEach(button => button.addEventListener('click',() => {
-        appendNumber(button.innerText);
-        updateDisplay();
-}))
-
-operatorButtons.forEach(button => button.addEventListener('click', () => {
-    chooseOperation(button.innerText);
-}))
-
-equalButton.addEventListener('click', () => {
-    operate();
-    updateDisplay();
-})
-
-deleteButton.addEventListener('click', () => {
-    remove();
-    updateDisplay();
-})
-
-
-
 function operate() {
-    let result
+    let result;
     let prev = parseFloat(previousNum);
     let curr = parseFloat(currentNum);
     switch (operator) {
@@ -94,3 +67,27 @@ function operate() {
     operation = undefined;
     previousNum = '';
 }
+
+clearButton.addEventListener('click', () => {
+    clear();
+    updateDisplay();
+});
+
+numberButtons.forEach(button => button.addEventListener('click',() => {
+    appendNumber(button.innerText);
+    updateDisplay();
+}));
+
+operatorButtons.forEach(button => button.addEventListener('click', () => {
+    chooseOperation(button.innerText);
+}));
+
+equalButton.addEventListener('click', () => {
+    operate();
+    updateDisplay();
+});
+
+deleteButton.addEventListener('click', () => {
+    remove();
+    updateDisplay();
+});
